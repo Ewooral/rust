@@ -1,0 +1,6 @@
+[package]
+name = "cargo_and_crates_io"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

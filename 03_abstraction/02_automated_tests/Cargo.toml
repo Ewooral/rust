@@ -1,0 +1,6 @@
+[package]
+name = "automated_tests"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

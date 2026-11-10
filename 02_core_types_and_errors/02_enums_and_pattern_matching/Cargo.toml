@@ -1,0 +1,6 @@
+[package]
+name = "enums_and_pattern_matching"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

@@ -1,0 +1,6 @@
+[package]
+name = "async_await"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

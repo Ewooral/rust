@@ -1,0 +1,6 @@
+[package]
+name = "advanced_features"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

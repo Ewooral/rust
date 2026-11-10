@@ -1,0 +1,32 @@
+[workspace]
+resolver = "3"
+members = [
+    "01_foundations/01_hello_world",
+    "01_foundations/02_guessing_game",
+    "01_foundations/03_variables_and_data_types",
+    "01_foundations/04_functions_and_comments",
+    "01_foundations/05_control_flow",
+    "01_foundations/06_ownership",
+    "02_core_types_and_errors/01_structs",
+    "02_core_types_and_errors/02_enums_and_pattern_matching",
+    "02_core_types_and_errors/03_packages_crates_modules",
+    "02_core_types_and_errors/04_collections",
+    "02_core_types_and_errors/05_error_handling",
+    "03_abstraction/01_generics_traits_lifetimes",
+    "03_abstraction/02_automated_tests",
+    "03_abstraction/03_minigrep_cli_project",
+    "03_abstraction/04_iterators_and_closures",
+    "03_abstraction/05_cargo_and_crates_io",
+    "03_abstraction/06_smart_pointers",
+    "03_abstraction/07_trait_objects_and_oop",
+    "03_abstraction/08_patterns_and_matching",
+    "04_systems_level/01_fearless_concurrency",
+    "04_systems_level/02_async_await",
+    "04_systems_level/03_advanced_features",
+    "04_systems_level/04_web_server_project",
+    "06_framework_mastery/axum_basics",
+]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"

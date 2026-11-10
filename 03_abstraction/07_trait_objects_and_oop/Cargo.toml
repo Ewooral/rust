@@ -1,0 +1,6 @@
+[package]
+name = "trait_objects_and_oop"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

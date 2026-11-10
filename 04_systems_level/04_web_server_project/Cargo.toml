@@ -1,0 +1,6 @@
+[package]
+name = "web_server"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
