@@ -2,7 +2,72 @@
 name = "ownership"
 version.workspace = true
 edition.workspace = true
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+default-run = "ownership"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_move"
+path = "exercises/ex01_fix_move.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_borrow_conflict"
+path = "exercises/ex02_fix_borrow_conflict.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_dangling"
+path = "exercises/ex03_fix_dangling.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_first_word"
+path = "exercises/ex04_first_word.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_borrow_or_own"
+path = "exercises/ex05_borrow_or_own.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_mem_take"
+path = "exercises/ex06_mem_take.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_move"
+path = "solutions/sol01_fix_move.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_borrow_conflict"
+path = "solutions/sol02_fix_borrow_conflict.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_dangling"
+path = "solutions/sol03_fix_dangling.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_first_word"
+path = "solutions/sol04_first_word.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_borrow_or_own"
+path = "solutions/sol05_borrow_or_own.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_mem_take"
+path = "solutions/sol06_mem_take.rs"
+required-features = ["solutions"]
