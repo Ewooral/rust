@@ -10,6 +10,15 @@ cargo run -p ownership      # run one lesson
 cargo clippy --workspace --all-targets
 ```
 
+## How every lesson is written
+
+[01_foundations/06_ownership](01_foundations/06_ownership/README.md) is the template. A finished lesson has:
+
+- **An analogy for every concept.** Each idea gets a `> 💡 **Analogy**` block simple enough to explain to a child (toys, plates, a cloakroom, a whiteboard). The lesson opens with one big-picture analogy, the sections extend it where they can, and the recap ends with a one-sentence version a child would understand. The analogy comes first; the precise rule follows, so the picture sticks and the detail hangs on it.
+- Why the feature exists, the rules, worked examples, and **real compiler errors** from our own exercises.
+- `examples/`: one runnable idea each. `exercises/`: behind `--features exercises`. `solutions/`: behind `--features solutions`. `src/`: a small project.
+- A common-mistakes table, a checklist of the Book sections, a recap, and a link to the next lesson.
+
 ## Course map
 
 | Category | Book chapters | What you learn |
