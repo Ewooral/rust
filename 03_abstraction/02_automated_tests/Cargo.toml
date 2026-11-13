@@ -2,5 +2,76 @@
 name = "automated_tests"
 version.workspace = true
 edition.workspace = true
+default-run = "automated_tests"
 
 [dependencies]
+
+# proptest is only used by tests/properties.rs.
+[dev-dependencies]
+proptest = "1"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_the_bug"
+path = "exercises/ex01_fix_the_bug.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_derives"
+path = "exercises/ex02_fix_missing_derives.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_honest_should_panic"
+path = "exercises/ex03_honest_should_panic.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_write_unit_tests"
+path = "exercises/ex04_write_unit_tests.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_tdd_roman_numerals"
+path = "exercises/ex05_tdd_roman_numerals.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_property_tests"
+path = "exercises/ex06_property_tests.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_the_bug"
+path = "solutions/sol01_fix_the_bug.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_derives"
+path = "solutions/sol02_fix_missing_derives.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_honest_should_panic"
+path = "solutions/sol03_honest_should_panic.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_write_unit_tests"
+path = "solutions/sol04_write_unit_tests.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_tdd_roman_numerals"
+path = "solutions/sol05_tdd_roman_numerals.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_property_tests"
+path = "solutions/sol06_property_tests.rs"
+required-features = ["solutions"]
