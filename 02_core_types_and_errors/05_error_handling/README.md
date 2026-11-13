@@ -19,7 +19,7 @@ Things go wrong: files are missing, users type "seventy" where you wanted 70, ne
 A panic prints a message, **unwinds** the stack (cleaning up every value on the way out) and exits with an error code. It happens when you call `panic!` yourself, or when code hits a bug, like an out-of-bounds index:
 
 ```text
-thread 'main' panicked at 02_core_types_and_errors\05_error_handling\examples\panic.rs:25:18:
+thread 'main' (16228) panicked at 02_core_types_and_errors\05_error_handling\examples\panic.rs:25:18:
 index out of bounds: the len is 3 but the index is 99
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
