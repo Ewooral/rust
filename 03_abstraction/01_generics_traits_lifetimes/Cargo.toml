@@ -2,5 +2,72 @@
 name = "generics_traits_lifetimes"
 version.workspace = true
 edition.workspace = true
+default-run = "generics_traits_lifetimes"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_missing_bound"
+path = "exercises/ex01_fix_missing_bound.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_lifetime"
+path = "exercises/ex02_fix_missing_lifetime.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_does_not_live_long_enough"
+path = "exercises/ex03_fix_does_not_live_long_enough.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_generic_stack"
+path = "exercises/ex04_generic_stack.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_trait_with_defaults"
+path = "exercises/ex05_trait_with_defaults.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_conversion_traits"
+path = "exercises/ex06_conversion_traits.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_missing_bound"
+path = "solutions/sol01_fix_missing_bound.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_lifetime"
+path = "solutions/sol02_fix_missing_lifetime.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_does_not_live_long_enough"
+path = "solutions/sol03_fix_does_not_live_long_enough.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_generic_stack"
+path = "solutions/sol04_generic_stack.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_trait_with_defaults"
+path = "solutions/sol05_trait_with_defaults.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_conversion_traits"
+path = "solutions/sol06_conversion_traits.rs"
+required-features = ["solutions"]
