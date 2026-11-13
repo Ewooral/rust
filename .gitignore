@@ -15,3 +15,7 @@
 # OS files
 .DS_Store
 Thumbs.db
+
+# proptest writes these when an UNSOLVED exercise fails; they are not
+# meaningful. (In real projects, do commit *.proptest-regressions.)
+**/exercises/*.proptest-regressions
