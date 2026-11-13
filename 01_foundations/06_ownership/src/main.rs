@@ -19,7 +19,7 @@ fn longest_word(text: &str) -> &str {
             longest = word;
         }
     }
-    longest
+    longest  
 }
 
 /// Capitalises the first letter of every word, in place.
