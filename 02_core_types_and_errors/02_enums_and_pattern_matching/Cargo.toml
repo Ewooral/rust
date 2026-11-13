@@ -2,5 +2,72 @@
 name = "enums_and_pattern_matching"
 version.workspace = true
 edition.workspace = true
+default-run = "enums_and_pattern_matching"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_non_exhaustive"
+path = "exercises/ex01_fix_non_exhaustive.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_option_arithmetic"
+path = "exercises/ex02_fix_option_arithmetic.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_match_move"
+path = "exercises/ex03_fix_match_move.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_traffic_light"
+path = "exercises/ex04_traffic_light.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_shapes"
+path = "exercises/ex05_shapes.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_parse_command"
+path = "exercises/ex06_parse_command.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_non_exhaustive"
+path = "solutions/sol01_fix_non_exhaustive.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_option_arithmetic"
+path = "solutions/sol02_fix_option_arithmetic.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_match_move"
+path = "solutions/sol03_fix_match_move.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_traffic_light"
+path = "solutions/sol04_traffic_light.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_shapes"
+path = "solutions/sol05_shapes.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_parse_command"
+path = "solutions/sol06_parse_command.rs"
+required-features = ["solutions"]
