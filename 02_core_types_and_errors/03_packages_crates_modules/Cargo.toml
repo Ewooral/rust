@@ -2,5 +2,83 @@
 name = "packages_crates_modules"
 version.workspace = true
 edition.workspace = true
+default-run = "packages_crates_modules"
+
+# The package's library crate gets its own name, so code writes
+# `use restaurant::...` instead of `use packages_crates_modules::...`.
+[lib]
+name = "restaurant"
+path = "src/lib.rs"
 
 [dependencies]
+
+# Only the `external_packages` example uses rand, so it is a dev-dependency:
+# it is not compiled into the library or the binaries.
+[dev-dependencies]
+rand = "0.9"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_private_function"
+path = "exercises/ex01_fix_private_function.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_private_field"
+path = "exercises/ex02_fix_private_field.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_use_scope"
+path = "exercises/ex03_fix_use_scope.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_organise_into_modules"
+path = "exercises/ex04_organise_into_modules.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_re_export"
+path = "exercises/ex05_re_export.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_split_into_files"
+path = "exercises/ex06_split_into_files/main.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_private_function"
+path = "solutions/sol01_fix_private_function.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_private_field"
+path = "solutions/sol02_fix_private_field.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_use_scope"
+path = "solutions/sol03_fix_use_scope.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_organise_into_modules"
+path = "solutions/sol04_organise_into_modules.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_re_export"
+path = "solutions/sol05_re_export.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_split_into_files"
+path = "solutions/sol06_split_into_files/main.rs"
+required-features = ["solutions"]

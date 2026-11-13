@@ -362,6 +362,9 @@ version = "0.1.0"
 [[package]]
 name = "packages_crates_modules"
 version = "0.1.0"
+dependencies = [
+ "rand",
+]
 
 [[package]]
 name = "parking_lot"
