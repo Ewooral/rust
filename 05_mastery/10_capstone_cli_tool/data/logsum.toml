@@ -1,0 +1,5 @@
+# logsum settings. Every key is optional; a missing key keeps the
+# built-in default. Environment variables and flags override these.
+min_level = "error"   # list errors and fatals only (default: "warn")
+top = 3               # list three messages (default: 5)
+color = "never"       # "auto", "always" or "never" (default: "auto")

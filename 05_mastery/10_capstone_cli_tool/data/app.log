@@ -1,0 +1,29 @@
+2026-05-01T09:00:00Z INFO server started on port 8080
+2026-05-01T09:00:00Z DEBUG loaded 42 routes
+2026-05-01T09:00:01Z INFO connected to database pool (size 10)
+2026-05-01T09:00:03Z WARN [db] slow query took 1532ms
+2026-05-01T09:00:04Z INFO GET /orders 200 12ms
+2026-05-01T09:00:04Z INFO GET /orders/17 200 9ms
+2026-05-01T09:00:05Z ERROR payment 991 failed: card declined
+2026-05-01T09:00:05Z INFO POST /checkout 402 85ms
+2026-05-01T09:00:06Z WARN [db] slow query took 2210ms
+2026-05-01T09:00:07Z INFO GET /health 200 1ms
+2026-05-01T09:00:09Z ERROR payment 17 failed: card declined
+2026-05-01T09:00:09Z INFO POST /checkout 402 77ms
+2026-05-01T09:00:10Z DEBUG cache miss for user 5521
+2026-05-01T09:00:11Z WARN retry 1 of 3 for mail.example.com
+2026-05-01T09:00:12Z WARN retry 2 of 3 for mail.example.com
+2026-05-01T09:00:13Z WARN retry 3 of 3 for mail.example.com
+2026-05-01T09:00:13Z ERROR could not send email to user 5521
+2026-05-01T09:00:15Z INFO GET /orders 200 15ms
+2026-05-01T09:00:16Z WARN [db] slow query took 1877ms
+2026-05-01T09:00:18Z ERROR unhandled exception in worker 3
+    at billing::charge (src/billing.rs:88)
+    at worker::run (src/worker.rs:31)
+2026-05-01T09:00:18Z INFO worker 3 restarted
+2026-05-01T09:00:20Z INFO GET /orders/18 200 11ms
+2026-05-01T09:00:21Z ERROR payment 1204 failed: card declined
+2026-05-01T09:00:22Z WARN disk 91% full on /var/log
+2026-05-01T09:00:25Z INFO GET /health 200 1ms
+2026-05-01T09:00:27Z WARN [db] slow query took 1503ms
+2026-05-01T09:00:30Z FATAL out of memory, shutting down

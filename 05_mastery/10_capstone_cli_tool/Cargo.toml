@@ -2,5 +2,84 @@
 name = "capstone_cli_tool"
 version.workspace = true
 edition.workspace = true
+description = "logsum: summarise log files from the command line (counts per level, top warnings and errors, JSON output)"
+license = "MIT OR Apache-2.0"
+default-run = "capstone_cli_tool"
 
 [dependencies]
+anyhow = "1"                                        # errors in the application (main.rs, app.rs)
+clap = { version = "4", features = ["derive"] }     # argument parsing; lesson 06/04 covers it in depth
+serde = { version = "1", features = ["derive"] }    # Serialize/Deserialize derives
+serde_json = "1"                                    # --json output
+thiserror = "2"                                     # typed errors in the library (src/lib.rs and its modules)
+toml = "1"                                          # the logsum.toml config file
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "capstone_cli_tool"
+path = "src/main.rs"
+
+[[bin]]
+name = "ex01_fix_is_terminal"
+path = "exercises/ex01_fix_is_terminal.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_error_conversion"
+path = "exercises/ex02_fix_error_conversion.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_csv_output"
+path = "exercises/ex03_csv_output.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_json_lines_input"
+path = "exercises/ex04_json_lines_input.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_setting_precedence"
+path = "exercises/ex05_setting_precedence.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_better_normalize"
+path = "exercises/ex06_better_normalize.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_is_terminal"
+path = "solutions/sol01_fix_is_terminal.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_error_conversion"
+path = "solutions/sol02_fix_error_conversion.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_csv_output"
+path = "solutions/sol03_csv_output.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_json_lines_input"
+path = "solutions/sol04_json_lines_input.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_setting_precedence"
+path = "solutions/sol05_setting_precedence.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_better_normalize"
+path = "solutions/sol06_better_normalize.rs"
+required-features = ["solutions"]
