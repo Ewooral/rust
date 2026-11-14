@@ -2,5 +2,81 @@
 name = "tauri_and_bevy"
 version.workspace = true
 edition.workspace = true
+description = "Bevy's ECS and Tauri's command/IPC layer, rebuilt in plain Rust to learn the ideas"
+default-run = "tauri_and_bevy"
 
+# Deliberately NO tauri or bevy here: both take a long time and a lot of disk
+# to build. The README shows how to create real projects with them.
 [dependencies]
+serde = { version = "1", features = ["derive"] }   # IPC messages and arguments
+serde_json = "1"                                   # the JSON that crosses the IPC boundary
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "tauri_and_bevy"
+path = "src/main.rs"
+
+[[bin]]
+name = "ex01_fix_component_lifetime"
+path = "exercises/ex01_fix_component_lifetime.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_handler_send"
+path = "exercises/ex02_fix_handler_send.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_hungry_foxes"
+path = "exercises/ex03_hungry_foxes.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_sparse_set"
+path = "exercises/ex04_sparse_set.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_rename_note"
+path = "exercises/ex05_rename_note.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_path_scope"
+path = "exercises/ex06_path_scope.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_component_lifetime"
+path = "solutions/sol01_fix_component_lifetime.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_handler_send"
+path = "solutions/sol02_fix_handler_send.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_hungry_foxes"
+path = "solutions/sol03_hungry_foxes.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_sparse_set"
+path = "solutions/sol04_sparse_set.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_rename_note"
+path = "solutions/sol05_rename_note.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_path_scope"
+path = "solutions/sol06_path_scope.rs"
+required-features = ["solutions"]
