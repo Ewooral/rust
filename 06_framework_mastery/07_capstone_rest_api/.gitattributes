@@ -1,0 +1,3 @@
+# Migrations are checksummed byte for byte (SHA-384): keep their line
+# endings stable on every checkout, or a migrated database refuses to start.
+migrations/*.sql text eol=lf

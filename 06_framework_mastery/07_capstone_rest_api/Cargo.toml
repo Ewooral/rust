@@ -2,5 +2,100 @@
 name = "capstone_rest_api"
 version.workspace = true
 edition.workspace = true
+default-run = "capstone_rest_api"
 
+# The capstone's stack (every crate here is pure Rust except SQLite, which
+# `sqlx`'s `sqlite` feature compiles from C; see lesson 06/03):
+# - `axum` (+ `macros` for `#[derive(FromRequest)]`), `tokio`, `tower`
+#   (`ServiceExt::oneshot` in tests and exercises) and `tower-http`
+#   (request ids, tracing, timeouts): the web layer, as in lesson 06/01.
+# - `sqlx` with the same features as lesson 06/03: SQLite, migrations.
+# - `argon2`: password hashing (Argon2id), pure Rust.
+# - `jsonwebtoken` with ONLY the `rust_crypto` backend: version 12 needs one
+#   backend; the other, `aws_lc_rs`, builds C and assembly code.
+# - `serde`/`serde_json`: JSON; `thiserror`: error enums.
+# - `tracing` + `tracing-subscriber` (`env-filter` for RUST_LOG, `json` for
+#   JSON log lines): structured logging.
 [dependencies]
+argon2 = "0.6.0"
+axum = { version = "0.8.9", features = ["macros"] }
+jsonwebtoken = { version = "12.0.0", default-features = false, features = ["rust_crypto"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sqlx = { version = "0.9.0", default-features = false, features = ["runtime-tokio", "sqlite", "macros", "migrate"] }
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["full"] }
+tower = { version = "0.5.3", features = ["util"] }
+tower-http = { version = "0.6.11", features = ["request-id", "timeout", "trace"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# `http-body-util` reads response bodies in the handler tests.
+[dev-dependencies]
+http-body-util = "0.1.5"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_question_mark_conversion"
+path = "exercises/ex01_fix_question_mark_conversion.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_service_ext"
+path = "exercises/ex02_fix_missing_service_ext.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_incompatible_branches"
+path = "exercises/ex03_fix_incompatible_branches.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_pagination"
+path = "exercises/ex04_pagination.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_bearer_extractor"
+path = "exercises/ex05_bearer_extractor.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_authorization_policy"
+path = "exercises/ex06_authorization_policy.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_question_mark_conversion"
+path = "solutions/sol01_fix_question_mark_conversion.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_service_ext"
+path = "solutions/sol02_fix_missing_service_ext.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_incompatible_branches"
+path = "solutions/sol03_fix_incompatible_branches.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_pagination"
+path = "solutions/sol04_pagination.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_bearer_extractor"
+path = "solutions/sol05_bearer_extractor.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_authorization_policy"
+path = "solutions/sol06_authorization_policy.rs"
+required-features = ["solutions"]

@@ -1,0 +1,5 @@
+# Local configuration with secrets, and local databases: never commit them.
+.env
+*.db
+*.db-shm
+*.db-wal

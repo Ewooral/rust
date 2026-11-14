@@ -1,0 +1,31 @@
+# Run the API in a container, from this folder:
+#
+#   cp .env.example .env        # then put a long random JWT_SECRET in .env
+#   docker compose up --build   # http://127.0.0.1:8080/health
+#   docker compose down         # stop (the database volume is kept)
+#
+# .env is ignored by Git (see .gitignore): it holds secrets.
+
+services:
+  api:
+    build:
+      context: ../..                                          # the workspace root
+      dockerfile: 06_framework_mastery/07_capstone_rest_api/Dockerfile
+    image: capstone-rest-api:dev
+    env_file: .env
+    environment:
+      # Inside the container these must win over .env:
+      APP_HOST: 0.0.0.0
+      APP_PORT: "8080"
+      DATABASE_URL: "sqlite:/data/app.db?mode=rwc"
+      LOG_FORMAT: json
+    ports:
+      - "127.0.0.1:8080:8080"     # reachable from this machine only
+    volumes:
+      - api-data:/data            # the SQLite database outlives the container
+    read_only: true               # the program can only write to /data
+    stop_grace_period: 15s        # time for in-flight requests after SIGTERM
+    restart: unless-stopped
+
+volumes:
+  api-data:

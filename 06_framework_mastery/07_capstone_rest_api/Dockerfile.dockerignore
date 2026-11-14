@@ -1,0 +1,11 @@
+# BuildKit reads <Dockerfile name>.dockerignore next to the Dockerfile, so
+# this file applies even though the build context is the workspace root.
+# Keep the context small (no build output) and free of secrets.
+target
+**/target
+.git
+.idea
+.vscode
+**/.env
+**/*.db
+**/*.db-*
