@@ -2,5 +2,87 @@
 name = "async_await"
 version.workspace = true
 edition.workspace = true
+default-run = "async_await"
 
+# The Book uses its own `trpl` crate, a thin wrapper around these two. We use
+# them directly, as real projects (and the framework lessons) do. README.md
+# has a table mapping every `trpl::` name to its Tokio / futures original.
 [dependencies]
+futures = "0.3.34"
+tokio = { version = "1.54.1", features = ["full"] }
+
+# Only examples and tests use these:
+# - `async-trait`: the `async_traits_and_shared_state` example.
+# - `tokio-stream`: the `streams` example (what `trpl`'s streams wrap).
+# - Tokio's `test-util`: `#[tokio::test(start_paused = true)]`, a fake clock
+#   that makes timing tests instant and never flaky.
+[dev-dependencies]
+async-trait = "0.1.92"
+tokio = { version = "1.54.1", features = ["full", "test-util"] }
+tokio-stream = "0.1.19"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_await_outside_async"
+path = "exercises/ex01_fix_await_outside_async.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_mismatched_futures"
+path = "exercises/ex02_fix_mismatched_futures.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_not_send_future"
+path = "exercises/ex03_fix_not_send_future.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_concurrent_downloads"
+path = "exercises/ex04_concurrent_downloads.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_stream_pipeline"
+path = "exercises/ex05_stream_pipeline.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_handwritten_future"
+path = "exercises/ex06_handwritten_future.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_await_outside_async"
+path = "solutions/sol01_fix_await_outside_async.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_mismatched_futures"
+path = "solutions/sol02_fix_mismatched_futures.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_not_send_future"
+path = "solutions/sol03_fix_not_send_future.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_concurrent_downloads"
+path = "solutions/sol04_concurrent_downloads.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_stream_pipeline"
+path = "solutions/sol05_stream_pipeline.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_handwritten_future"
+path = "solutions/sol06_handwritten_future.rs"
+required-features = ["solutions"]
