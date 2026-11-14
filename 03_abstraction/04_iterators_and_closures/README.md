@@ -214,7 +214,7 @@ impl Iterator for Counter {
 | `thread::spawn(\|\| …)` using a local | E0373 | `move \|\| …` |
 | `fn` inside a function using a local variable | E0434 | Use a closure. |
 | Called one closure with two different types | E0308 | One closure has one type. Use a generic `fn` instead. |
-| `collect()` with no type | E0282 type annotations needed | `let v: Vec<_> = …` or `.collect::<Vec<_>>()` |
+| `collect()` with no type | E0283 type annotations needed | `let v: Vec<_> = …` or `.collect::<Vec<_>>()` |
 | Pushed a captured `String` inside `sort_by_key` | E0507 | `sort_by_key` needs `FnMut`: don't move captures out. |
 | `for x in vec` then used `vec` | E0382 | `for x in &vec` |
 | An endless iterator with no `take` | runs forever | `take(n)` or `take_while(…)` |
