@@ -1,0 +1,6 @@
+[package]
+name = "macros_in_depth"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

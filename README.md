@@ -8,7 +8,11 @@ Every lesson is a crate in one Cargo workspace. Each lesson folder has a `README
 cargo test --workspace      # run every lesson's tests
 cargo run -p ownership      # run one lesson
 cargo clippy --workspace --all-targets
+cargo xtask fmt             # format every lesson (use this, not `cargo fmt --all`)
+cargo xtask ci              # format check + clippy + all tests, like CI would
 ```
+
+`cargo fmt --all` passes every file in the workspace to rustfmt in one command, which is now too long for Windows ("The filename or extension is too long", os error 206). `cargo xtask fmt` (in [`xtask/`](xtask/src/main.rs), the standard "xtask" pattern for workspace helper commands) formats one package at a time instead, on every platform.
 
 ## How every lesson is written
 

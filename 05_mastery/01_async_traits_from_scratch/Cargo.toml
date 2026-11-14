@@ -1,0 +1,6 @@
+[package]
+name = "async_traits_from_scratch"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

@@ -1,0 +1,6 @@
+[package]
+name = "no_std_and_embedded"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

@@ -1,0 +1,6 @@
+[package]
+name = "capstone_rest_api"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

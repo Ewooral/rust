@@ -1,0 +1,6 @@
+[package]
+name = "sqlx_database"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

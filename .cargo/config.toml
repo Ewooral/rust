@@ -1,0 +1,4 @@
+# `cargo xtask <command>` runs the workspace helper in xtask/.
+# Try: cargo xtask fmt  |  cargo xtask fmt --check  |  cargo xtask ci
+[alias]
+xtask = "run --quiet --package xtask --"

@@ -3,6 +3,10 @@
 version = 4
 
 [[package]]
+name = "actix_web_basics"
+version = "0.1.0"
+
+[[package]]
 name = "advanced_features"
 version = "0.1.0"
 dependencies = [
@@ -14,10 +18,18 @@ name = "advanced_features_macros"
 version = "0.1.0"
 
 [[package]]
+name = "advanced_testing"
+version = "0.1.0"
+
+[[package]]
 name = "anyhow"
 version = "1.0.104"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
+
+[[package]]
+name = "api_design"
+version = "0.1.0"
 
 [[package]]
 name = "async-trait"
@@ -39,6 +51,10 @@ dependencies = [
  "tokio",
  "tokio-stream",
 ]
+
+[[package]]
+name = "async_traits_from_scratch"
+version = "0.1.0"
 
 [[package]]
 name = "atomic-waker"
@@ -175,6 +191,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04"
 
 [[package]]
+name = "capstone_cli_tool"
+version = "0.1.0"
+
+[[package]]
+name = "capstone_interpreter"
+version = "0.1.0"
+
+[[package]]
+name = "capstone_rest_api"
+version = "0.1.0"
+
+[[package]]
 name = "cargo_and_crates_io"
 version = "0.1.0"
 dependencies = [
@@ -204,6 +232,10 @@ dependencies = [
  "cpufeatures",
  "rand_core 0.10.1",
 ]
+
+[[package]]
+name = "clap_cli"
+version = "0.1.0"
 
 [[package]]
 name = "collections"
@@ -589,6 +621,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c"
 
 [[package]]
+name = "macros_in_depth"
+version = "0.1.0"
+
+[[package]]
 name = "matchit"
 version = "0.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -622,6 +658,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "no_std_and_embedded"
+version = "0.1.0"
+
+[[package]]
 name = "num-traits"
 version = "0.2.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -629,6 +669,10 @@ checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
 dependencies = [
  "autocfg",
 ]
+
+[[package]]
+name = "observability"
+version = "0.1.0"
 
 [[package]]
 name = "once_cell"
@@ -679,6 +723,10 @@ name = "percent-encoding"
 version = "2.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
+
+[[package]]
+name = "performance"
+version = "0.1.0"
 
 [[package]]
 name = "pin-project-lite"
@@ -953,6 +1001,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "serialization"
+version = "0.1.0"
+
+[[package]]
 name = "signal-hook-registry"
 version = "1.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -989,6 +1041,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "sqlx_database"
+version = "0.1.0"
+
+[[package]]
 name = "structs"
 version = "0.1.0"
 
@@ -1019,6 +1075,10 @@ name = "sync_wrapper"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0bf256ce5efdfa370213c1dabab5935a12e49f2c58d15e9eac2870d3b4f27263"
+
+[[package]]
+name = "tauri_and_bevy"
+version = "0.1.0"
 
 [[package]]
 name = "tempfile"
@@ -1091,6 +1151,10 @@ dependencies = [
  "pin-project-lite",
  "tokio",
 ]
+
+[[package]]
+name = "tokio_runtime"
+version = "0.1.0"
 
 [[package]]
 name = "toml_datetime"
@@ -1219,6 +1283,10 @@ name = "web_server"
 version = "0.1.0"
 
 [[package]]
+name = "webassembly"
+version = "0.1.0"
+
+[[package]]
 name = "windows-link"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1247,6 +1315,13 @@ name = "wit-bindgen"
 version = "0.57.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1ebf944e87a7c253233ad6766e082e3cd714b5d03812acc24c318f549614536e"
+
+[[package]]
+name = "xtask"
+version = "0.1.0"
+dependencies = [
+ "serde_json",
+]
 
 [[package]]
 name = "zerocopy"

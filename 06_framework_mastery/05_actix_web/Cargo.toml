@@ -1,0 +1,6 @@
+[package]
+name = "actix_web_basics"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

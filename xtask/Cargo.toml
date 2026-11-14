@@ -1,0 +1,9 @@
+[package]
+name = "xtask"
+version.workspace = true
+edition.workspace = true
+publish = false
+description = "Workspace helper commands: run them as `cargo xtask <command>`."
+
+[dependencies]
+serde_json = "1"

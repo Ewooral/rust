@@ -1,0 +1,6 @@
+[package]
+name = "capstone_cli_tool"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

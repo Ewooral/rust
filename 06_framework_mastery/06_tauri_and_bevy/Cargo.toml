@@ -1,0 +1,6 @@
+[package]
+name = "tauri_and_bevy"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
