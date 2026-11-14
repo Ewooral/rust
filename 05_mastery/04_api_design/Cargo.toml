@@ -2,5 +2,75 @@
 name = "api_design"
 version.workspace = true
 edition.workspace = true
+default-run = "api_design"
 
 [dependencies]
+# `#[derive(Error)]` for the library's error types: the usual choice for a
+# LIBRARY, because callers can still match on each variant (lesson 02/05).
+thiserror = "2"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_missing_traits"
+path = "exercises/ex01_fix_missing_traits.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_non_exhaustive_match"
+path = "exercises/ex02_fix_non_exhaustive_match.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_typestate_order"
+path = "exercises/ex03_fix_typestate_order.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_newtype_conversions"
+path = "exercises/ex04_newtype_conversions.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_builder_with_errors"
+path = "exercises/ex05_builder_with_errors.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_iterators_and_generics"
+path = "exercises/ex06_iterators_and_generics.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_missing_traits"
+path = "solutions/sol01_fix_missing_traits.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_non_exhaustive_match"
+path = "solutions/sol02_fix_non_exhaustive_match.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_typestate_order"
+path = "solutions/sol03_fix_typestate_order.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_newtype_conversions"
+path = "solutions/sol04_newtype_conversions.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_builder_with_errors"
+path = "solutions/sol05_builder_with_errors.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_iterators_and_generics"
+path = "solutions/sol06_iterators_and_generics.rs"
+required-features = ["solutions"]
