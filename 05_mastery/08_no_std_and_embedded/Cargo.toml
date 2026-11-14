@@ -2,5 +2,89 @@
 name = "no_std_and_embedded"
 version.workspace = true
 edition.workspace = true
+default-run = "no_std_and_embedded"
 
 [dependencies]
+# The hardware abstraction traits (OutputPin, InputPin, I2c, DelayNs, ...).
+# Pure traits, no_std, no dependencies of their own.
+embedded-hal = "1"
+# Serde without its `std` feature, and postcard without its defaults: both
+# work in no_std. `derive` is only the macros, which run on your PC anyway.
+serde = { version = "1", default-features = false, features = ["derive"] }
+postcard = { version = "1", default-features = false }
+
+# Only the examples use these.
+[dev-dependencies]
+# The async versions of the embedded-hal traits (what embassy drivers use).
+embedded-hal-async = "1"
+# Fixed-capacity Vec, String, queues: the standard no_std collections.
+heapless = "0.9"
+
+[features]
+# `alloc`: functions that need a heap (Vec). Off by default, like many
+# embedded crates: a microcontroller may have no allocator at all.
+alloc = ["postcard/alloc"]
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_std_paths"
+path = "exercises/ex01_fix_std_paths.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_vec_needs_alloc"
+path = "exercises/ex02_fix_vec_needs_alloc.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_bus_error_conversion"
+path = "exercises/ex03_fix_bus_error_conversion.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_fixed_vec"
+path = "exercises/ex04_fixed_vec.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_debounce_button"
+path = "exercises/ex05_debounce_button.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_light_sensor_driver"
+path = "exercises/ex06_light_sensor_driver.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_std_paths"
+path = "solutions/sol01_fix_std_paths.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_vec_needs_alloc"
+path = "solutions/sol02_fix_vec_needs_alloc.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_bus_error_conversion"
+path = "solutions/sol03_fix_bus_error_conversion.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_fixed_vec"
+path = "solutions/sol04_fixed_vec.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_debounce_button"
+path = "solutions/sol05_debounce_button.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_light_sensor_driver"
+path = "solutions/sol06_light_sensor_driver.rs"
+required-features = ["solutions"]
