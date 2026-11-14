@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "Work laptop",
+  "server": { "host": "nas.local", "port": 9000, "timeout_secs": 45 },
+  "schedule": "weekly:fri@18:30",
+  "keep_versions": 10,
+  "folders": [
+    { "path": "C:/Work", "include": ["*.docx", "*.xlsx"] },
+    { "path": "C:/Users/kofi/Desktop" }
+  ]
+}

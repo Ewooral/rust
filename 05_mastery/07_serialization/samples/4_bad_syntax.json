@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "name": "Trailing comma",
+  "server": { "host": "nas.local", "port": 9000 },
+}

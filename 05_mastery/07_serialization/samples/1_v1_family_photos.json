@@ -1,0 +1,7 @@
+{
+  "name": "Family photos",
+  "server_url": "backup.example.com:8443",
+  "timeout_secs": 20,
+  "nightly": true,
+  "folders": ["C:/Users/ama/Pictures", "D:/Camera"]
+}

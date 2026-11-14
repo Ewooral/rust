@@ -2,5 +2,84 @@
 name = "serialization"
 version.workspace = true
 edition.workspace = true
+default-run = "serialization"
 
 [dependencies]
+# The framework: traits (Serialize, Deserialize) plus the derive macros.
+serde = { version = "1", features = ["derive"] }
+# Two text formats. Each is a separate crate that implements Serde's
+# Serializer/Deserializer traits; your types never need to know which.
+serde_json = "1"
+toml = "1"
+
+# Only the examples use these.
+[dev-dependencies]
+# A compact binary format, designed for no_std (lesson 08). `use-std` gives
+# `to_stdvec`; leaving out the default features skips `heapless`.
+postcard = { version = "1", default-features = false, features = ["use-std"] }
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_missing_derive"
+path = "exercises/ex01_fix_missing_derive.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_borrow_outlives_buffer"
+path = "exercises/ex02_fix_borrow_outlives_buffer.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_trait_not_in_scope"
+path = "exercises/ex03_fix_trait_not_in_scope.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_match_the_json"
+path = "exercises/ex04_match_the_json.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_hand_written_visitor"
+path = "exercises/ex05_hand_written_visitor.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_migrate_versions"
+path = "exercises/ex06_migrate_versions.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_missing_derive"
+path = "solutions/sol01_fix_missing_derive.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_borrow_outlives_buffer"
+path = "solutions/sol02_fix_borrow_outlives_buffer.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_trait_not_in_scope"
+path = "solutions/sol03_fix_trait_not_in_scope.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_match_the_json"
+path = "solutions/sol04_match_the_json.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_hand_written_visitor"
+path = "solutions/sol05_hand_written_visitor.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_migrate_versions"
+path = "solutions/sol06_migrate_versions.rs"
+required-features = ["solutions"]

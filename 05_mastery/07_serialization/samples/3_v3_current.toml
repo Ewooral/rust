@@ -1,0 +1,18 @@
+# The current format: version 3.
+version = 3
+name = "Music"
+keep-versions = 2
+
+[server]
+host = "backup.example.com"
+port = 8443
+timeout = "1m30s"
+
+[schedule]
+run = "daily"
+at = "03:15"
+
+[[folders]]
+path = "D:/Music"
+include = ["*.flac", "*.mp3"]
+follow-links = true

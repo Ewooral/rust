@@ -1,0 +1,6 @@
+version = 3
+name = "Quoted number"
+
+[server]
+host = "nas.local"
+port = "9000"

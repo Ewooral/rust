@@ -1,0 +1,6 @@
+version = 3
+name = "Typo"
+
+[server]
+host = "nas.local"
+prot = 9000

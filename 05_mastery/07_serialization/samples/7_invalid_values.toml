@@ -1,0 +1,14 @@
+version = 3
+name = "Nonsense values"
+keep-versions = 0
+
+[server]
+host = "https://nas.local"
+port = 9000
+timeout = "20m"
+
+[[folders]]
+path = "C:/Photos"
+
+[[folders]]
+path = "c:/photos"
