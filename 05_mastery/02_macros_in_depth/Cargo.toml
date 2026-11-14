@@ -2,5 +2,90 @@
 name = "macros_in_depth"
 version.workspace = true
 edition.workspace = true
+default-run = "macros_in_depth"
 
 [dependencies]
+# Our procedural macros. A proc macro must be its own crate; this one lives
+# in ./macros. A path dependency inside the workspace becomes a workspace
+# member automatically, so `cargo test -p macros_in_depth_derive` works too.
+macros_in_depth_derive = { path = "macros" }
+# The exercises and solutions practise macro logic in ordinary code, with
+# the same crates a proc macro uses. Optional: only those features pull them in.
+proc-macro2 = { version = "1.0.107", optional = true }
+quote = { version = "1.0.47", optional = true }
+syn = { version = "3.0.10", features = ["full"], optional = true }
+
+# Only examples and tests use these:
+# - syn, quote, proc-macro2: the `syn_and_quote` example runs them at run time.
+# - trybuild: compile-fail ("UI") tests for our macros' error messages.
+[dev-dependencies]
+proc-macro2 = "1.0.107"
+quote = "1.0.47"
+syn = { version = "3.0.10", features = ["full"] }
+trybuild = "1.0.122"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = ["dep:proc-macro2", "dep:quote", "dep:syn"]
+solutions = ["dep:proc-macro2", "dep:quote", "dep:syn"]
+
+[[bin]]
+name = "ex01_fix_hygiene"
+path = "exercises/ex01_fix_hygiene.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_crate_path"
+path = "exercises/ex02_fix_crate_path.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_from_str"
+path = "exercises/ex03_fix_from_str.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_recursive_macros"
+path = "exercises/ex04_recursive_macros.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_derive_logic"
+path = "exercises/ex05_derive_logic.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_parse_custom_syntax"
+path = "exercises/ex06_parse_custom_syntax.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_hygiene"
+path = "solutions/sol01_fix_hygiene.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_crate_path"
+path = "solutions/sol02_fix_crate_path.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_from_str"
+path = "solutions/sol03_fix_from_str.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_recursive_macros"
+path = "solutions/sol04_recursive_macros.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_derive_logic"
+path = "solutions/sol05_derive_logic.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_parse_custom_syntax"
+path = "solutions/sol06_parse_custom_syntax.rs"
+required-features = ["solutions"]

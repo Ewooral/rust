@@ -1,0 +1,5 @@
+error: #[memoize] keeps arguments in its cache, so they must be owned: use `String` instead of `&str`, `Vec<T>` instead of `&[T]`
+ --> tests/ui/memoize_borrowed_argument.rs:4:21
+  |
+4 | fn word_count(text: &str) -> usize {
+  |                     ^^^^

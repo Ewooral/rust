@@ -1,0 +1,17 @@
+error: expected a colour like "#ff8800" or "#f80"
+ --> tests/ui/palette_bad_colours.rs:5:15
+  |
+5 |         sky = "light blue",
+  |               ^^^^^^^^^^^^
+
+error: expected a colour like "#ff8800" or "#f80"
+ --> tests/ui/palette_bad_colours.rs:6:15
+  |
+6 |         sea = "#12",
+  |               ^^^^^
+
+error: `sky` is in this palette twice
+ --> tests/ui/palette_bad_colours.rs:7:9
+  |
+7 |         sky = "#000",
+  |         ^^^

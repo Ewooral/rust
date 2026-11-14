@@ -1,0 +1,11 @@
+error: unknown setting option: expected `default` or `rename`
+ --> tests/ui/settings_bad_options.rs:5:15
+  |
+5 |     #[setting(defualt = "8080")]
+  |               ^^^^^^^
+
+error: write the default as it would appear in the settings file, in quotes: `default = "8080"`
+ --> tests/ui/settings_bad_options.rs:7:25
+  |
+7 |     #[setting(default = 4)]
+  |                         ^

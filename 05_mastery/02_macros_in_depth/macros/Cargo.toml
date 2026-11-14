@@ -1,0 +1,18 @@
+[package]
+name = "macros_in_depth_derive"
+version.workspace = true
+edition.workspace = true
+description = "The macros_in_depth lesson's procedural macros: a derive, an attribute and a function-like macro, built with syn and quote"
+publish = false
+
+# A procedural macro must live in its OWN crate, of this special type: the
+# compiler loads it as a plugin and runs it while compiling the crates that
+# use it. Lesson 04/03 wrote one with no dependencies; this one uses the
+# three crates nearly every real procedural macro uses.
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0.107" # TokenStream/Span that also work outside the compiler (tests)
+quote = "1.0.47"        # quote! { … }: write Rust code, get tokens
+syn = { version = "3.0.10", features = ["full"] } # tokens -> syntax tree ("full": fn bodies too)
