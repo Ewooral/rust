@@ -1,0 +1,38 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT title, price_pence FROM books WHERE price_pence <= ? ORDER BY price_pence",
+  "describe": {
+    "columns": [
+      {
+        "name": "title",
+        "ordinal": 0,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "books",
+            "name": "title"
+          }
+        }
+      },
+      {
+        "name": "price_pence",
+        "ordinal": 1,
+        "type_info": "Integer",
+        "origin": {
+          "Table": {
+            "table": "books",
+            "name": "price_pence"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "e2818d7da2c7cd76a59109c7820bdd4060a013b8bd3d80bacca8f422f256da5e"
+}

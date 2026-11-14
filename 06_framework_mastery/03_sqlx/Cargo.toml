@@ -2,5 +2,89 @@
 name = "sqlx_database"
 version.workspace = true
 edition.workspace = true
+default-run = "sqlx_database"
 
+# - `sqlx` with only the features this lesson uses:
+#   - `runtime-tokio`: run on Tokio (lesson 06/02).
+#   - `sqlite`: the SQLite driver. It compiles SQLite itself from C source
+#     (`libsqlite3-sys`, "bundled"), so it needs a C compiler: MSVC Build Tools
+#     on Windows, `gcc`/`clang` on Linux. The `postgres` and `mysql` drivers
+#     are pure Rust but need a database server.
+#   - `macros`: `query!`, `query_as!`, `#[derive(FromRow)]`, `#[sqlx::test]`.
+#   - `migrate`: `sqlx::migrate!` and the `Migrator`.
+# - `thiserror` for the inventory's error enum (lesson 02/05).
 [dependencies]
+sqlx = { version = "0.9.0", default-features = false, features = ["runtime-tokio", "sqlite", "macros", "migrate"] }
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["full"] }
+
+# `futures` gives the `connect_and_query` example `TryStreamExt::try_next`,
+# to read a stream of rows (`fetch`) one at a time.
+[dev-dependencies]
+futures = "0.3.34"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_format_sql"
+path = "exercises/ex01_fix_format_sql.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_transaction_executor"
+path = "exercises/ex02_fix_transaction_executor.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_use_after_commit"
+path = "exercises/ex03_fix_use_after_commit.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_crud_queries"
+path = "exercises/ex04_crud_queries.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_stock_transfer"
+path = "exercises/ex05_stock_transfer.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_dynamic_search"
+path = "exercises/ex06_dynamic_search.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_format_sql"
+path = "solutions/sol01_fix_format_sql.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_transaction_executor"
+path = "solutions/sol02_fix_transaction_executor.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_use_after_commit"
+path = "solutions/sol03_fix_use_after_commit.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_crud_queries"
+path = "solutions/sol04_crud_queries.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_stock_transfer"
+path = "solutions/sol05_stock_transfer.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_dynamic_search"
+path = "solutions/sol06_dynamic_search.rs"
+required-features = ["solutions"]

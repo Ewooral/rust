@@ -1,0 +1,4 @@
+# Migrations are checksummed byte for byte (SHA-384). If Git turned LF into
+# CRLF on checkout, a database migrated from the LF version would report
+# "migration 1 was previously applied but has been modified".
+migrations/*.sql text eol=lf

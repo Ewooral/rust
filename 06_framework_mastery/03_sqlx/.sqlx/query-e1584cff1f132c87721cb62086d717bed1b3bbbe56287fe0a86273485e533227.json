@@ -1,0 +1,50 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT title, stock, published_year FROM books WHERE isbn = ?",
+  "describe": {
+    "columns": [
+      {
+        "name": "title",
+        "ordinal": 0,
+        "type_info": "Text",
+        "origin": {
+          "Table": {
+            "table": "books",
+            "name": "title"
+          }
+        }
+      },
+      {
+        "name": "stock",
+        "ordinal": 1,
+        "type_info": "Integer",
+        "origin": {
+          "Table": {
+            "table": "books",
+            "name": "stock"
+          }
+        }
+      },
+      {
+        "name": "published_year",
+        "ordinal": 2,
+        "type_info": "Integer",
+        "origin": {
+          "Table": {
+            "table": "books",
+            "name": "published_year"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "e1584cff1f132c87721cb62086d717bed1b3bbbe56287fe0a86273485e533227"
+}
