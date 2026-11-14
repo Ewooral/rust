@@ -2,5 +2,72 @@
 name = "web_server"
 version.workspace = true
 edition.workspace = true
+default-run = "web_server"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_job_not_send"
+path = "exercises/ex01_fix_job_not_send.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_shared_receiver"
+path = "exercises/ex02_fix_shared_receiver.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_join_in_drop"
+path = "exercises/ex03_fix_join_in_drop.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_parse_request_line"
+path = "exercises/ex04_parse_request_line.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_build_response"
+path = "exercises/ex05_build_response.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_thread_pool_build"
+path = "exercises/ex06_thread_pool_build.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_job_not_send"
+path = "solutions/sol01_fix_job_not_send.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_shared_receiver"
+path = "solutions/sol02_fix_shared_receiver.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_join_in_drop"
+path = "solutions/sol03_fix_join_in_drop.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_parse_request_line"
+path = "solutions/sol04_parse_request_line.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_build_response"
+path = "solutions/sol05_build_response.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_thread_pool_build"
+path = "solutions/sol06_thread_pool_build.rs"
+required-features = ["solutions"]
