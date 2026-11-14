@@ -2,5 +2,78 @@
 name = "capstone_interpreter"
 version.workspace = true
 edition.workspace = true
+description = "Kite: a small language with a lexer, a Pratt parser and a tree-walking interpreter"
+default-run = "capstone_interpreter"
 
+# No dependencies: everything here is the standard library.
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "capstone_interpreter"
+path = "src/main.rs"
+
+[[bin]]
+name = "ex01_fix_recursive_enum"
+path = "exercises/ex01_fix_recursive_enum.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_shared_env"
+path = "exercises/ex02_fix_shared_env.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_precedence"
+path = "exercises/ex03_fix_precedence.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_add_modulo"
+path = "exercises/ex04_add_modulo.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_len_builtin"
+path = "exercises/ex05_len_builtin.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_add_arrays"
+path = "exercises/ex06_add_arrays.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_recursive_enum"
+path = "solutions/sol01_fix_recursive_enum.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_shared_env"
+path = "solutions/sol02_fix_shared_env.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_precedence"
+path = "solutions/sol03_fix_precedence.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_add_modulo"
+path = "solutions/sol04_add_modulo.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_len_builtin"
+path = "solutions/sol05_len_builtin.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_add_arrays"
+path = "solutions/sol06_add_arrays.rs"
+required-features = ["solutions"]

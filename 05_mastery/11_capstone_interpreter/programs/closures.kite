@@ -1,0 +1,32 @@
+// Closures: a function keeps the variables of the place it was made.
+
+fn make_counter(start) {
+    let count = start;
+    return fn () {
+        count = count + 1;
+        return count;
+    };
+}
+
+let a = make_counter(0);
+let b = make_counter(100);
+a();
+a();
+print("a:", a(), "b:", b());
+
+// Functions are values: pass them in, return them, store them.
+fn compose(f, g) {
+    return fn (x) { return f(g(x)); };
+}
+let add_one = fn (x) { return x + 1; };
+let double = fn (x) { return x * 2; };
+let both = compose(add_one, double);
+print("compose(add_one, double)(5) =", both(5));
+
+// Scopes: a block gets its own variables.
+let name = "outer";
+{
+    let name = "inner";
+    print("in the block:", name);
+}
+print("after the block:", name);
