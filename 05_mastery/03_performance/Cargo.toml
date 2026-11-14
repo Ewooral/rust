@@ -2,5 +2,104 @@
 name = "performance"
 version.workspace = true
 edition.workspace = true
+default-run = "performance"
 
+# Profiles ([profile.release], [profile.bench]) can only be set in the
+# WORKSPACE ROOT Cargo.toml; in a member they are ignored with a warning.
+# See README.md, section 2, for the settings this lesson talks about.
+
+# rayon: the parallel version of the mini project (and exercise 5).
 [dependencies]
+rayon = "1.12"
+
+# Only the benchmarks and examples need these. criterion's default features
+# add HTML plots (plotters) and run its statistics on rayon; we keep it lean.
+[dev-dependencies]
+criterion = { version = "0.8", default-features = false }
+smallvec = "1.16"
+
+# `bench = false`: `cargo bench` would otherwise also run the library's and
+# the program's (empty) libtest benchmark harness, which rejects criterion's
+# options such as `--save-baseline`.
+[lib]
+bench = false
+
+[[bin]]
+name = "performance"
+path = "src/main.rs"
+bench = false
+
+# criterion brings its own `main`, so the built-in harness is switched off.
+[[bench]]
+name = "pipeline"
+harness = false
+
+[[bench]]
+name = "kernels"
+harness = false
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_dangling_cow"
+path = "exercises/ex01_fix_dangling_cow.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_preallocate"
+path = "exercises/ex02_preallocate.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_borrow_dont_clone"
+path = "exercises/ex03_borrow_dont_clone.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_struct_of_arrays"
+path = "exercises/ex04_struct_of_arrays.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_fix_parallel_sum"
+path = "exercises/ex05_fix_parallel_sum.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_fast_word_count"
+path = "exercises/ex06_fast_word_count.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_dangling_cow"
+path = "solutions/sol01_fix_dangling_cow.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_preallocate"
+path = "solutions/sol02_preallocate.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_borrow_dont_clone"
+path = "solutions/sol03_borrow_dont_clone.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_struct_of_arrays"
+path = "solutions/sol04_struct_of_arrays.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_fix_parallel_sum"
+path = "solutions/sol05_fix_parallel_sum.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_fast_word_count"
+path = "solutions/sol06_fast_word_count.rs"
+required-features = ["solutions"]
