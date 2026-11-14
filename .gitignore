@@ -19,3 +19,6 @@ Thumbs.db
 # proptest writes these when an UNSOLVED exercise fails; they are not
 # meaningful. (In real projects, do commit *.proptest-regressions.)
 **/exercises/*.proptest-regressions
+# insta writes these when an UNSOLVED exercise fails its snapshot.
+**/exercises/*.pending-snap
+**/exercises/**/*.snap.new
