@@ -2,5 +2,72 @@
 name = "iterators_and_closures"
 version.workspace = true
 edition.workspace = true
+default-run = "iterators_and_closures"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_fnonce"
+path = "exercises/ex01_fix_fnonce.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_lazy_iterator"
+path = "exercises/ex02_fix_lazy_iterator.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_mutable_capture"
+path = "exercises/ex03_fix_mutable_capture.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_iterator_pipelines"
+path = "exercises/ex04_iterator_pipelines.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_custom_iterator"
+path = "exercises/ex05_custom_iterator.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_closures_as_values"
+path = "exercises/ex06_closures_as_values.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_fnonce"
+path = "solutions/sol01_fix_fnonce.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_lazy_iterator"
+path = "solutions/sol02_fix_lazy_iterator.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_mutable_capture"
+path = "solutions/sol03_fix_mutable_capture.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_iterator_pipelines"
+path = "solutions/sol04_iterator_pipelines.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_custom_iterator"
+path = "solutions/sol05_custom_iterator.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_closures_as_values"
+path = "solutions/sol06_closures_as_values.rs"
+required-features = ["solutions"]
