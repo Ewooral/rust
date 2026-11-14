@@ -48,3 +48,14 @@ members = [
 [workspace.package]
 edition = "2024"
 version = "0.1.0"
+
+# Keep the build folder small. Every exercise, solution and example is its
+# own executable, and on Windows each one used to get a full .pdb file of
+# debug symbols (7.8 GB of a 12 GB target/). Line tables keep file:line
+# numbers in panics and backtraces; third-party crates get no debug info.
+# To step through code in a debugger, temporarily set `debug = true` here.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
