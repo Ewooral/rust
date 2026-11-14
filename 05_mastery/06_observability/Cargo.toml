@@ -2,5 +2,86 @@
 name = "observability"
 version.workspace = true
 edition.workspace = true
+default-run = "observability"
 
+# - tracing: the facade every crate logs through (spans, events, fields).
+# - tracing-subscriber: what to DO with them. `env-filter` reads RUST_LOG,
+#   `json` adds JSON output; its default `tracing-log` feature forwards
+#   records from the older `log` crate.
+# - log: only to show that compatibility (the `log_compat` example).
+# - tokio: async spans, and the mini project's concurrent jobs.
 [dependencies]
+log = "0.4"
+tokio = { version = "1.54.1", features = ["full"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# serde_json: tests parse the JSON log lines to check their fields.
+[dev-dependencies]
+serde_json = "1"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_field_value"
+path = "exercises/ex01_fix_field_value.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_instrument_secret"
+path = "exercises/ex02_fix_instrument_secret.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_span_across_await"
+path = "exercises/ex03_fix_span_across_await.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_capture_logs"
+path = "exercises/ex04_capture_logs.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_filter_directives"
+path = "exercises/ex05_filter_directives.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_counting_layer"
+path = "exercises/ex06_counting_layer.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_field_value"
+path = "solutions/sol01_fix_field_value.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_instrument_secret"
+path = "solutions/sol02_fix_instrument_secret.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_span_across_await"
+path = "solutions/sol03_fix_span_across_await.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_capture_logs"
+path = "solutions/sol04_capture_logs.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_filter_directives"
+path = "solutions/sol05_filter_directives.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_counting_layer"
+path = "solutions/sol06_counting_layer.rs"
+required-features = ["solutions"]
