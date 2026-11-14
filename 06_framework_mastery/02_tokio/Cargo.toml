@@ -2,5 +2,88 @@
 name = "tokio_runtime"
 version.workspace = true
 edition.workspace = true
+default-run = "tokio_runtime"
 
+# - `tokio` with `full`: the runtime, timers, sockets, sync primitives, macros.
+# - `tokio-util`: `CancellationToken` (always there), `TaskTracker` (`rt`)
+#   and the `Framed`/`LinesCodec` line codec (`codec`).
+# - `tokio-stream`: `StreamExt` adapters and wrappers that turn channels and
+#   intervals into streams.
+# - `futures`: `SinkExt::send` for writing to a `Framed` connection.
 [dependencies]
+futures = "0.3.34"
+tokio = { version = "1.54.1", features = ["full"] }
+tokio-stream = "0.1.19"
+tokio-util = { version = "0.7.20", features = ["codec", "rt"] }
+
+# Tokio's `test-util`: a paused clock for `#[tokio::test(start_paused = true)]`
+# and for the timing examples, so they run instantly and print the same
+# numbers every time.
+[dev-dependencies]
+tokio = { version = "1.54.1", features = ["full", "test-util"] }
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_moved_sender"
+path = "exercises/ex01_fix_moved_sender.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_rc_across_await"
+path = "exercises/ex02_fix_rc_across_await.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_unpinned_sleep"
+path = "exercises/ex03_fix_unpinned_sleep.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_limited_fetch"
+path = "exercises/ex04_limited_fetch.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_kv_actor"
+path = "exercises/ex05_kv_actor.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_cancellable_worker"
+path = "exercises/ex06_cancellable_worker.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_moved_sender"
+path = "solutions/sol01_fix_moved_sender.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_rc_across_await"
+path = "solutions/sol02_fix_rc_across_await.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_unpinned_sleep"
+path = "solutions/sol03_fix_unpinned_sleep.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_limited_fetch"
+path = "solutions/sol04_limited_fetch.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_kv_actor"
+path = "solutions/sol05_kv_actor.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_cancellable_worker"
+path = "solutions/sol06_cancellable_worker.rs"
+required-features = ["solutions"]
