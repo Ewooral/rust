@@ -31,8 +31,8 @@ cargo xtask ci              # format check + clippy + all tests, like CI would
 | [02 Core Types and Errors](02_core_types_and_errors/README.md) | 5-9 | Structs, enums, modules, collections, error handling |
 | [03 Abstraction](03_abstraction/README.md) | 10-15, 18-19 | Generics, traits, lifetimes, tests, CLI project, iterators, Cargo, smart pointers, trait objects, patterns |
 | [04 Systems Level](04_systems_level/README.md) | 16-17, 20-21 | Threads, async, unsafe and advanced features, multithreaded web server |
-| [05 Mastery](05_mastery/README.md) | beyond the Book | Async internals, macros, performance, API design, capstones |
-| [06 Framework Mastery](06_framework_mastery/README.md) | beyond the Book | Axum, Tokio, Serde, SQLx, Clap, Actix-web |
+| [05 Mastery](05_mastery/README.md) | beyond the Book | Async traits, macros, performance, API design, advanced testing, tracing, Serde, `no_std`, WebAssembly, CLI and interpreter capstones |
+| [06 Framework Mastery](06_framework_mastery/README.md) | beyond the Book | Axum, Tokio, SQLx, Clap, Actix-web, Tauri and Bevy, REST API capstone |
 
 ## Reference (Book appendix)
 
