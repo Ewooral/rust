@@ -2,5 +2,72 @@
 name = "minigrep"
 version.workspace = true
 edition.workspace = true
+default-run = "minigrep"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_search_lifetime"
+path = "exercises/ex01_fix_search_lifetime.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_unhandled_build"
+path = "exercises/ex02_fix_unhandled_build.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_stdout_errors"
+path = "exercises/ex03_fix_stdout_errors.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_search_with_line_numbers"
+path = "exercises/ex04_search_with_line_numbers.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_parse_flags"
+path = "exercises/ex05_parse_flags.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_search_stdin"
+path = "exercises/ex06_search_stdin.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_search_lifetime"
+path = "solutions/sol01_fix_search_lifetime.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_unhandled_build"
+path = "solutions/sol02_fix_unhandled_build.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_stdout_errors"
+path = "solutions/sol03_fix_stdout_errors.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_search_with_line_numbers"
+path = "solutions/sol04_search_with_line_numbers.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_parse_flags"
+path = "solutions/sol05_parse_flags.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_search_stdin"
+path = "solutions/sol06_search_stdin.rs"
+required-features = ["solutions"]
