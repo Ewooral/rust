@@ -2,5 +2,72 @@
 name = "trait_objects_and_oop"
 version.workspace = true
 edition.workspace = true
+default-run = "trait_objects_and_oop"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_not_dyn_compatible"
+path = "exercises/ex01_fix_not_dyn_compatible.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_mixed_screen"
+path = "exercises/ex02_fix_mixed_screen.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_typed_post"
+path = "exercises/ex03_fix_typed_post.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_encapsulated_stats"
+path = "exercises/ex04_encapsulated_stats.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_blog_extensions"
+path = "exercises/ex05_blog_extensions.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_widgets_supertrait_any"
+path = "exercises/ex06_widgets_supertrait_any.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_not_dyn_compatible"
+path = "solutions/sol01_fix_not_dyn_compatible.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_mixed_screen"
+path = "solutions/sol02_fix_mixed_screen.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_typed_post"
+path = "solutions/sol03_fix_typed_post.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_encapsulated_stats"
+path = "solutions/sol04_encapsulated_stats.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_blog_extensions"
+path = "solutions/sol05_blog_extensions.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_widgets_supertrait_any"
+path = "solutions/sol06_widgets_supertrait_any.rs"
+required-features = ["solutions"]
