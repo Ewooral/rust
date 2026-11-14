@@ -2,5 +2,76 @@
 name = "async_traits_from_scratch"
 version.workspace = true
 edition.workspace = true
+default-run = "async_traits_from_scratch"
 
+# The same versions and features as lesson 04/02, so the workspace builds
+# them once for both lessons.
 [dependencies]
+async-trait = "0.1.92"
+tokio = { version = "1.54.1", features = ["full"] }
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_dyn_compatible"
+path = "exercises/ex01_fix_dyn_compatible.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_unpin"
+path = "exercises/ex02_fix_unpin.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_spawn_borrowed"
+path = "exercises/ex03_fix_spawn_borrowed.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_cached_service"
+path = "exercises/ex04_cached_service.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_fetch_all"
+path = "exercises/ex05_fetch_all.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_async_trait_fallback"
+path = "exercises/ex06_async_trait_fallback.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_dyn_compatible"
+path = "solutions/sol01_fix_dyn_compatible.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_unpin"
+path = "solutions/sol02_fix_unpin.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_spawn_borrowed"
+path = "solutions/sol03_fix_spawn_borrowed.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_cached_service"
+path = "solutions/sol04_cached_service.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_fetch_all"
+path = "solutions/sol05_fetch_all.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_async_trait_fallback"
+path = "solutions/sol06_async_trait_fallback.rs"
+required-features = ["solutions"]
