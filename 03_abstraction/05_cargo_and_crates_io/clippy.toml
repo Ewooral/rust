@@ -1,0 +1,11 @@
+# Clippy settings for this crate only (Beyond the Book).
+# The [lints] table in Cargo.toml says WHICH lints are on and how loud.
+# This file tunes HOW some of them behave. Clippy finds it by looking in the
+# crate's folder, then in each parent folder.
+
+# `unwrap_used` is switched on in Cargo.toml, but `.unwrap()` in tests is fine:
+# a panic is exactly how a test fails.
+allow-unwrap-in-tests = true
+
+# Names that say nothing. ".." keeps clippy's defaults (foo, baz, quux).
+disallowed-names = ["..", "thing", "stuff"]

@@ -1,6 +1,104 @@
 [package]
 name = "cargo_and_crates_io"
+# These two come from [workspace.package] in the root Cargo.toml (Book 14.3).
 version.workspace = true
 edition.workspace = true
+# The oldest Rust that can build this crate (the MSRV). Edition 2024 needs 1.85.
+rust-version = "1.85"
+default-run = "cargo_and_crates_io"
 
+# Metadata that crates.io shows on a crate's page (Book 14.2). `cargo publish`
+# refuses to upload a crate without a description and a licence.
+description = "Lesson for Book chapter 14: cargo preflight, a checker that tells you if a crate is ready for crates.io"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["cargo", "crates-io", "publishing", "lesson"]
+categories = ["development-tools::cargo-plugins"]
+# A lesson is not a real crate: this stops an accidental `cargo publish`.
+publish = false
+
+# Optional dependencies: only compiled when the `json` feature asks for them.
 [dependencies]
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
+
+# Feature flags (Beyond the Book). Features are additive switches.
+#   cargo run -p cargo_and_crates_io --no-default-features   plain ASCII output
+#   cargo run -p cargo_and_crates_io --features json -- --json
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+default = ["unicode"]
+unicode = []
+json = ["dep:serde", "dep:serde_json"]
+exercises = []
+solutions = []
+
+# Lint levels for every target in this package (Beyond the Book).
+# clippy.toml next to this file tunes how some clippy lints behave.
+[lints.rust]
+missing_docs = "warn"
+
+[lints.clippy]
+unwrap_used = "warn"
+dbg_macro = "warn"
+
+[[bin]]
+name = "ex01_fix_reexports"
+path = "exercises/ex01_fix_reexports.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_docs"
+path = "exercises/ex02_fix_missing_docs.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_feature_gate"
+path = "exercises/ex03_fix_feature_gate.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_semver_requirements"
+path = "exercises/ex04_semver_requirements.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_resolve_features"
+path = "exercises/ex05_resolve_features.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_profile_inheritance"
+path = "exercises/ex06_profile_inheritance.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_reexports"
+path = "solutions/sol01_fix_reexports.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_docs"
+path = "solutions/sol02_fix_missing_docs.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_feature_gate"
+path = "solutions/sol03_fix_feature_gate.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_semver_requirements"
+path = "solutions/sol04_semver_requirements.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_resolve_features"
+path = "solutions/sol05_resolve_features.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_profile_inheritance"
+path = "solutions/sol06_profile_inheritance.rs"
+required-features = ["solutions"]
