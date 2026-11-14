@@ -2,5 +2,84 @@
 name = "clap_cli"
 version.workspace = true
 edition.workspace = true
+default-run = "clap_cli"
 
+# - `clap` with `derive` (the #[derive(Parser)] API) and `env` (read an
+#   option from an environment variable: `#[arg(env = "TASKS_STORE")]`).
+# - `clap_complete` writes shell completion scripts.
+# - `serde` + `serde_json` keep the mini project's tasks in a JSON file.
 [dependencies]
+clap = { version = "4.6.7", features = ["derive", "env"] }
+clap_complete = "4.6.11"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+
+# A fresh temporary folder per test, deleted afterwards.
+[dev-dependencies]
+tempfile = "3.27.0"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_parser_not_in_scope"
+path = "exercises/ex01_fix_parser_not_in_scope.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_value_enum"
+path = "exercises/ex02_fix_missing_value_enum.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_default_value_type"
+path = "exercises/ex03_fix_default_value_type.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_value_parsers"
+path = "exercises/ex04_value_parsers.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_subcommand_dispatch"
+path = "exercises/ex05_subcommand_dispatch.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_exit_codes"
+path = "exercises/ex06_exit_codes.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_parser_not_in_scope"
+path = "solutions/sol01_fix_parser_not_in_scope.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_value_enum"
+path = "solutions/sol02_fix_missing_value_enum.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_default_value_type"
+path = "solutions/sol03_fix_default_value_type.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_value_parsers"
+path = "solutions/sol04_value_parsers.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_subcommand_dispatch"
+path = "solutions/sol05_subcommand_dispatch.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_exit_codes"
+path = "solutions/sol06_exit_codes.rs"
+required-features = ["solutions"]
