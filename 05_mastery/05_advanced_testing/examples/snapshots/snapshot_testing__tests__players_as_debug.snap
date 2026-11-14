@@ -1,0 +1,9 @@
+---
+source: 05_mastery/05_advanced_testing/examples/snapshot_testing.rs
+expression: "players()[0]"
+---
+Player {
+    name: "Kofi",
+    played: 5,
+    won: 2,
+}

@@ -1,0 +1,14 @@
+---
+source: 05_mastery/05_advanced_testing/tests/checkout/receipts.rs
+expression: receipt.render()
+---
+Receipt ORD-BNKD3Y
+2026-11-16 15:30 UTC
+
+2 x Flat white           £3.20     £6.40
+1 x Banana bread         £2.75     £2.75
+
+Subtotal                           £9.15
+Coupon WELCOME20 (20%)            -£1.83
+Total                              £7.32
+Paid by card ending 4242 (pay_0001)

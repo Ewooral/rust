@@ -1,0 +1,30 @@
+---
+source: 05_mastery/05_advanced_testing/tests/checkout/receipts.rs
+expression: receipt
+---
+Receipt {
+    order_id: "ORD-BNKD3Y",
+    placed_at: Timestamp(
+        1794819600,
+    ),
+    lines: [
+        LineItem {
+            name: "Espresso",
+            unit_price: Money(
+                250,
+            ),
+            quantity: 1,
+        },
+    ],
+    subtotal: Money(
+        250,
+    ),
+    discount: None,
+    total: Money(
+        250,
+    ),
+    card_last_four: "4242",
+    payment_id: PaymentId(
+        "pay_0001",
+    ),
+}

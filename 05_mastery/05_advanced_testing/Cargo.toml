@@ -2,5 +2,85 @@
 name = "advanced_testing"
 version.workspace = true
 edition.workspace = true
+default-run = "advanced_testing"
 
+# rand: the order-id generator (seeded in tests, from the OS in production).
 [dependencies]
+rand = "0.9"
+
+# Test-only crates: never compiled into the program itself.
+#   arbitrary: turns fuzzer bytes into structured inputs (fuzz harnesses)
+#   insta:     snapshot testing (no CLI needed for assert_snapshot!)
+#   mockall:   generated mocks (#[automock], mock!)
+#   proptest:  property testing (recap of 03/02)
+[dev-dependencies]
+arbitrary = { version = "1", features = ["derive"] }
+insta = "1"
+mockall = "0.15"
+proptest = "1"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_inject_the_clock"
+path = "exercises/ex01_inject_the_clock.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_hand_written_fake"
+path = "exercises/ex02_hand_written_fake.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_mock_catches_double_charge"
+path = "exercises/ex03_mock_catches_double_charge.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_write_the_mocks"
+path = "exercises/ex04_write_the_mocks.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_snapshot_a_receipt"
+path = "exercises/ex05_snapshot_a_receipt.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_fuzz_finds_a_crash"
+path = "exercises/ex06_fuzz_finds_a_crash.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_inject_the_clock"
+path = "solutions/sol01_inject_the_clock.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_hand_written_fake"
+path = "solutions/sol02_hand_written_fake.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_mock_catches_double_charge"
+path = "solutions/sol03_mock_catches_double_charge.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_write_the_mocks"
+path = "solutions/sol04_write_the_mocks.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_snapshot_a_receipt"
+path = "solutions/sol05_snapshot_a_receipt.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_fuzz_finds_a_crash"
+path = "solutions/sol06_fuzz_finds_a_crash.rs"
+required-features = ["solutions"]

@@ -1,0 +1,8 @@
+---
+source: 05_mastery/05_advanced_testing/examples/snapshot_testing.rs
+expression: "super::league_table(&players())"
+---
+#   Player       P   W  Pts
+1   Ama          5   4   12
+2   Esi          4   2    6
+3   Kofi         5   2    6
