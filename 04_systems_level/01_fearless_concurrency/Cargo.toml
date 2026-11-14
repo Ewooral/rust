@@ -2,7 +2,75 @@
 name = "fearless_concurrency"
 version.workspace = true
 edition.workspace = true
+default-run = "fearless_concurrency"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
+# The mini project compares a hand-built worker pool with rayon, so rayon is
+# a normal dependency (the `rayon_parallel` example uses it too).
 [dependencies]
+rayon = "1.12"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_missing_move"
+path = "exercises/ex01_fix_missing_move.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_use_after_send"
+path = "exercises/ex02_fix_use_after_send.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_rc_not_send"
+path = "exercises/ex03_fix_rc_not_send.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_parallel_sum"
+path = "exercises/ex04_parallel_sum.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_fan_in_channel"
+path = "exercises/ex05_fan_in_channel.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_mutex_and_atomic_counters"
+path = "exercises/ex06_mutex_and_atomic_counters.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_missing_move"
+path = "solutions/sol01_fix_missing_move.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_use_after_send"
+path = "solutions/sol02_fix_use_after_send.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_rc_not_send"
+path = "solutions/sol03_fix_rc_not_send.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_parallel_sum"
+path = "solutions/sol04_parallel_sum.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_fan_in_channel"
+path = "solutions/sol05_fan_in_channel.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_mutex_and_atomic_counters"
+path = "solutions/sol06_mutex_and_atomic_counters.rs"
+required-features = ["solutions"]
