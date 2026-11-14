@@ -2,7 +2,72 @@
 name = "variables_and_data_types"
 version.workspace = true
 edition.workspace = true
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+default-run = "variables_and_data_types"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_immutable_assign"
+path = "exercises/ex01_fix_immutable_assign.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_shadow_type_change"
+path = "exercises/ex02_fix_shadow_type_change.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_parse_annotation"
+path = "exercises/ex03_fix_parse_annotation.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_fix_const_overflow"
+path = "exercises/ex04_fix_const_overflow.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_safe_arithmetic"
+path = "exercises/ex05_safe_arithmetic.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_tuples_arrays_casts"
+path = "exercises/ex06_tuples_arrays_casts.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_immutable_assign"
+path = "solutions/sol01_fix_immutable_assign.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_shadow_type_change"
+path = "solutions/sol02_fix_shadow_type_change.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_parse_annotation"
+path = "solutions/sol03_fix_parse_annotation.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_fix_const_overflow"
+path = "solutions/sol04_fix_const_overflow.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_safe_arithmetic"
+path = "solutions/sol05_safe_arithmetic.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_tuples_arrays_casts"
+path = "solutions/sol06_tuples_arrays_casts.rs"
+required-features = ["solutions"]
