@@ -2,5 +2,83 @@
 name = "webassembly"
 version.workspace = true
 edition.workspace = true
+default-run = "webassembly"
+
+[lib]
+# cdylib: the kind of library a .wasm module is (a C-style dynamic library
+# with exported functions). rlib: the normal Rust library, so main.rs, the
+# examples and the tests can use it on the PC.
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+# The Rust <-> JavaScript bridge. It builds on every target: on the PC the
+# exported functions are plain Rust, and calling an IMPORTED JavaScript
+# function panics ("cannot call wasm-bindgen imported functions on non-wasm
+# targets"), so the tests only call pure Rust.
+wasm-bindgen = "0.2"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_nested_vec"
+path = "exercises/ex01_fix_nested_vec.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_global_state"
+path = "exercises/ex02_fix_global_state.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_cfg_gated_import"
+path = "exercises/ex03_fix_cfg_gated_import.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_utf16_offsets"
+path = "exercises/ex04_utf16_offsets.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_rgba_filters"
+path = "exercises/ex05_rgba_filters.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_flat_buffers"
+path = "exercises/ex06_flat_buffers.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_nested_vec"
+path = "solutions/sol01_fix_nested_vec.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_global_state"
+path = "solutions/sol02_fix_global_state.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_cfg_gated_import"
+path = "solutions/sol03_fix_cfg_gated_import.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_utf16_offsets"
+path = "solutions/sol04_utf16_offsets.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_rgba_filters"
+path = "solutions/sol05_rgba_filters.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_flat_buffers"
+path = "solutions/sol06_flat_buffers.rs"
+required-features = ["solutions"]

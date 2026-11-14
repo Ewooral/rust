@@ -1,0 +1,92 @@
+<!doctype html>
+<!--
+  The browser half of the lesson's mini project (NOT run while writing the
+  lesson: the wasm32 target isn't installed on that machine).
+
+  Build and open it, from the 05_mastery/09_webassembly folder:
+    rustup target add wasm32-unknown-unknown
+    cargo install wasm-pack
+    wasm-pack build --target web          # writes ./pkg/
+    python -m http.server 8000            # any static file server works
+  then open http://localhost:8000/www/
+
+  A server is needed because browsers refuse to load ES modules and .wasm
+  files from file:// URLs.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Game of Life: Rust and WebAssembly</title>
+    <style>
+      :root {
+        --alive: #1f6feb;
+        --dead: #f3f4f6;
+        --grid: #d0d7de;
+        color-scheme: light dark;
+        font-family: system-ui, sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --alive: #58a6ff;
+          --dead: #161b22;
+          --grid: #30363d;
+        }
+      }
+      body {
+        max-width: 60rem;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+        line-height: 1.5;
+      }
+      canvas {
+        display: block;
+        max-width: 100%;
+        cursor: crosshair;
+        border: 1px solid var(--grid);
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0.75rem 0;
+      }
+      textarea {
+        width: 100%;
+        font-family: ui-monospace, monospace;
+      }
+      #error {
+        color: #cf222e;
+        min-height: 1.5em;
+      }
+    </style>
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <h1>Game of Life</h1>
+    <p>The rules run in Rust, compiled to WebAssembly. JavaScript only draws.</p>
+
+    <canvas id="board" aria-label="Game of Life board. Click a cell to switch it on or off."></canvas>
+
+    <div class="controls">
+      <button id="play" type="button">Play</button>
+      <button id="step" type="button">Step</button>
+      <button id="random" type="button">Random</button>
+      <button id="clear" type="button">Clear</button>
+      <label>Pattern <select id="pattern"></select></label>
+      <button id="insert" type="button">Insert</button>
+      <output id="stats" aria-live="polite"></output>
+    </div>
+
+    <label for="custom">Or paste a plaintext (.cells) pattern:</label>
+    <textarea id="custom" rows="6">!Name: Lightweight spaceship
+.O..O
+O....
+O...O
+OOOO.</textarea>
+    <button id="load" type="button">Load pattern</button>
+    <p id="error" role="alert"></p>
+  </body>
+</html>
