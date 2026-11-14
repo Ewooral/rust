@@ -2,5 +2,72 @@
 name = "smart_pointers"
 version.workspace = true
 edition.workspace = true
+default-run = "smart_pointers"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_recursive_type"
+path = "exercises/ex01_fix_recursive_type.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_shared_owner"
+path = "exercises/ex02_fix_shared_owner.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_interior_mutability"
+path = "exercises/ex03_fix_interior_mutability.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_boxed_stack"
+path = "exercises/ex04_boxed_stack.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_deref_and_drop"
+path = "exercises/ex05_deref_and_drop.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_weak_tree"
+path = "exercises/ex06_weak_tree.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_recursive_type"
+path = "solutions/sol01_fix_recursive_type.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_shared_owner"
+path = "solutions/sol02_fix_shared_owner.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_interior_mutability"
+path = "solutions/sol03_fix_interior_mutability.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_boxed_stack"
+path = "solutions/sol04_boxed_stack.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_deref_and_drop"
+path = "solutions/sol05_deref_and_drop.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_weak_tree"
+path = "solutions/sol06_weak_tree.rs"
+required-features = ["solutions"]
