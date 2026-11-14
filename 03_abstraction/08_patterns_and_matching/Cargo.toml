@@ -2,5 +2,72 @@
 name = "patterns_and_matching"
 version.workspace = true
 edition.workspace = true
+default-run = "patterns_and_matching"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_refutable_let"
+path = "exercises/ex01_fix_refutable_let.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_non_exhaustive_slice"
+path = "exercises/ex02_fix_non_exhaustive_slice.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_or_pattern_bindings"
+path = "exercises/ex03_fix_or_pattern_bindings.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_classify_points"
+path = "exercises/ex04_classify_points.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_slice_patterns"
+path = "exercises/ex05_slice_patterns.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_rpn_calculator"
+path = "exercises/ex06_rpn_calculator.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_refutable_let"
+path = "solutions/sol01_fix_refutable_let.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_non_exhaustive_slice"
+path = "solutions/sol02_fix_non_exhaustive_slice.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_or_pattern_bindings"
+path = "solutions/sol03_fix_or_pattern_bindings.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_classify_points"
+path = "solutions/sol04_classify_points.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_slice_patterns"
+path = "solutions/sol05_slice_patterns.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_rpn_calculator"
+path = "solutions/sol06_rpn_calculator.rs"
+required-features = ["solutions"]
