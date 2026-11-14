@@ -1,0 +1,15 @@
+[package]
+name = "advanced_features_macros"
+version.workspace = true
+edition.workspace = true
+description = "The three kinds of procedural macro, written with no dependencies"
+publish = false
+
+# A procedural macro must live in its OWN crate, of this special type. The
+# compiler loads it as a plugin and runs it while compiling the crates that
+# use it. Real projects add `syn` (parse tokens) and `quote` (write tokens);
+# this one uses only `proc_macro`, so you can see what those crates do for you.
+[lib]
+proc-macro = true
+
+[dependencies]

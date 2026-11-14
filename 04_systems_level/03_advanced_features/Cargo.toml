@@ -2,5 +2,75 @@
 name = "advanced_features"
 version.workspace = true
 edition.workspace = true
+default-run = "advanced_features"
 
 [dependencies]
+# Our own procedural macros (Book 20.5). A proc macro must be a separate crate
+# of type `proc-macro`; this one lives in ./macros and has no dependencies.
+advanced_features_macros = { path = "macros" }
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_unsafe_split"
+path = "exercises/ex01_fix_unsafe_split.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_orphan_rule"
+path = "exercises/ex02_fix_orphan_rule.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_sized_bound"
+path = "exercises/ex03_fix_sized_bound.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_money_operators"
+path = "exercises/ex04_money_operators.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_macro_rules"
+path = "exercises/ex05_macro_rules.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_fn_pointers_and_closures"
+path = "exercises/ex06_fn_pointers_and_closures.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_unsafe_split"
+path = "solutions/sol01_fix_unsafe_split.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_orphan_rule"
+path = "solutions/sol02_fix_orphan_rule.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_sized_bound"
+path = "solutions/sol03_fix_sized_bound.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_money_operators"
+path = "solutions/sol04_money_operators.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_macro_rules"
+path = "solutions/sol05_macro_rules.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_fn_pointers_and_closures"
+path = "solutions/sol06_fn_pointers_and_closures.rs"
+required-features = ["solutions"]
