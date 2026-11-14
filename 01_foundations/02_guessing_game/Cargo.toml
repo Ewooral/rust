@@ -2,10 +2,74 @@
 name = "guessing_game"
 version.workspace = true
 edition.workspace = true
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+default-run = "guessing_game"
 
 [dependencies]
 rand = "0.9"
-colored= "3"
- 
+colored = "3"
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_compare_string"
+path = "exercises/ex01_fix_compare_string.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_missing_trait"
+path = "exercises/ex02_fix_missing_trait.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_missing_arm"
+path = "exercises/ex03_fix_missing_arm.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_parse_in_range"
+path = "exercises/ex04_parse_in_range.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_hint"
+path = "exercises/ex05_hint.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_warmer_colder"
+path = "exercises/ex06_warmer_colder.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_compare_string"
+path = "solutions/sol01_fix_compare_string.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_missing_trait"
+path = "solutions/sol02_fix_missing_trait.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_missing_arm"
+path = "solutions/sol03_fix_missing_arm.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_parse_in_range"
+path = "solutions/sol04_parse_in_range.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_hint"
+path = "solutions/sol05_hint.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_warmer_colder"
+path = "solutions/sol06_warmer_colder.rs"
+required-features = ["solutions"]
