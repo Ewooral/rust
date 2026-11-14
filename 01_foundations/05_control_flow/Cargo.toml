@@ -2,7 +2,72 @@
 name = "control_flow"
 version.workspace = true
 edition.workspace = true
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+default-run = "control_flow"
 
 [dependencies]
+
+# Exercises and solutions are opt-in so unsolved exercises never break
+# `cargo test --workspace`. See README.md for how to run them.
+[features]
+exercises = []
+solutions = []
+
+[[bin]]
+name = "ex01_fix_non_bool_condition"
+path = "exercises/ex01_fix_non_bool_condition.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex02_fix_if_else_types"
+path = "exercises/ex02_fix_if_else_types.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex03_fix_uninitialized"
+path = "exercises/ex03_fix_uninitialized.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex04_fizzbuzz"
+path = "exercises/ex04_fizzbuzz.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex05_collatz_steps"
+path = "exercises/ex05_collatz_steps.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "ex06_find_in_grid"
+path = "exercises/ex06_find_in_grid.rs"
+required-features = ["exercises"]
+
+[[bin]]
+name = "sol01_fix_non_bool_condition"
+path = "solutions/sol01_fix_non_bool_condition.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol02_fix_if_else_types"
+path = "solutions/sol02_fix_if_else_types.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol03_fix_uninitialized"
+path = "solutions/sol03_fix_uninitialized.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol04_fizzbuzz"
+path = "solutions/sol04_fizzbuzz.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol05_collatz_steps"
+path = "solutions/sol05_collatz_steps.rs"
+required-features = ["solutions"]
+
+[[bin]]
+name = "sol06_find_in_grid"
+path = "solutions/sol06_find_in_grid.rs"
+required-features = ["solutions"]
