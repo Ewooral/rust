@@ -2,7 +2,7 @@
 
 A hands-on course that follows [The Rust Programming Language](https://doc.rust-lang.org/book/) (the Book) chapter by chapter, then goes beyond it into mastery topics and real frameworks.
 
-**Stuck on a symbol or keyword?** [SYNTAX.md](SYNTAX.md) is a one-page reference of every Rust symbol, keyword and common form, with what it means and the lesson that teaches it.
+**Stuck on a symbol or keyword?** [SYNTAX.md](SYNTAX.md) is a one-page reference of every Rust symbol, keyword and common form, with what it means, its Python equivalent and the lesson that teaches it.
 
 Every lesson is a crate in one Cargo workspace. Each lesson folder has a `README.md` with the Book sections it covers as a checklist, plus "Beyond the Book" extras.
 
