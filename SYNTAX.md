@@ -4,7 +4,9 @@ Every symbol, keyword and common form in one page, each with a plain one-line me
 
 Official references for anything not here: [Book appendix B: operators and symbols](https://doc.rust-lang.org/book/appendix-02-operators.html) · [appendix A: keywords](https://doc.rust-lang.org/book/appendix-01-keywords.html) · [The Rust Reference](https://doc.rust-lang.org/reference/) · [std docs](https://doc.rust-lang.org/std/)
 
-**Contents:** [Symbol index](#symbol-index-what-does-this-mean) · [Comments and printing](#comments-and-printing) · [Variables](#variables-and-constants) · [Types and literals](#types-and-literals) · [Operators](#operators) · [Functions and closures](#functions-and-closures) · [Control flow](#control-flow) · [Ownership and references](#ownership-borrowing-and-lifetimes) · [Structs, enums, impl](#structs-enums-and-impl) · [Traits and generics](#traits-and-generics) · [Patterns](#patterns) · [Errors](#error-handling) · [Collections](#collections-and-strings) · [Modules](#modules-and-visibility) · [Macros](#macros) · [Attributes](#attributes) · [Smart pointers](#smart-pointers) · [Concurrency and async](#concurrency-and-async) · [Unsafe](#unsafe-and-ffi) · [All keywords](#all-keywords) · [Cargo commands](#cargo-commands)
+**Contents:** [Symbol index](#symbol-index-what-does-this-mean) · [Comments and printing](#comments-and-printing) · [Variables](#variables-and-constants) · [Types and literals](#types-and-literals) · [Operators](#operators) · [Functions and closures](#functions-and-closures) · [Control flow](#control-flow) · [Ownership and references](#ownership-borrowing-and-lifetimes) · [Structs, enums, impl](#structs-enums-and-impl) · [Traits and generics](#traits-and-generics) · [Patterns](#patterns) · [Errors](#error-handling) · [Collections](#collections-and-strings) · [Modules](#modules-and-visibility) · [Macros](#macros) · [Attributes](#attributes) · [Smart pointers](#smart-pointers) · [Concurrency and async](#concurrency-and-async) · [Unsafe](#unsafe-and-ffi) · [Newer syntax](#newer-syntax) · [All keywords](#all-keywords) · [Cargo commands](#cargo-commands)
+
+Checked against the Book's complete lists: every entry in [appendix A](https://doc.rust-lang.org/book/appendix-01-keywords.html) (keywords) and [appendix B](https://doc.rust-lang.org/book/appendix-02-operators.html) (operators and symbols) appears here.
 
 ---
 
@@ -13,6 +15,12 @@ Official references for anything not here: [Book appendix B: operators and symbo
 | You see | It means | Example |
 |---|---|---|
 | `::` | path separator: an item inside a module or type | `std::fs::read`, `String::new()` |
+| `::path` (leading) | absolute path from the crate root / an external crate | `::std::fmt::Display` |
+| `<Type>::item` | path on a type that has no plain name | `<[i32]>::len(&a)`, `<&str>::default()` |
+| `,` | separates arguments, elements and fields | `f(a, b)`, `[1, 2]` |
+| `:` | "has type", struct field value, loop label, or trait bound | `x: i32`, `User { age: 9 }`, `'a: loop`, `T: Clone` |
+| `(x,)` | a ONE-element tuple (the comma matters; `(x)` is just `x` in brackets) | `let t = (5,);` |
+| `...` | old inclusive-range pattern: an error in edition 2024 (E0783), write `..=` | ~~`1...9`~~ → `1..=9` |
 | `.` | field access or method call | `user.name`, `s.len()` |
 | `;` | ends a statement; a block's last line **without** `;` is its value | `let x = 5;` |
 | `&` | borrow (a shared reference); also bitwise AND | `&s`, `fn f(s: &str)` |
@@ -56,6 +64,7 @@ Official references for anything not here: [Book appendix B: operators and symbo
 | `/* text */` | block comment |
 | `/// text` | doc comment for the next item (shows in `cargo doc`) |
 | `//! text` | doc comment for the enclosing file/module/crate |
+| `/** text */` / `/*! text */` | block versions of `///` and `//!` (rarely used) |
 | `println!("...")` / `print!` | print with / without a newline (stdout) |
 | `eprintln!` / `eprint!` | print to stderr (errors) |
 | `format!("...")` | build a `String` instead of printing |
@@ -145,6 +154,8 @@ Official references for anything not here: [Book appendix B: operators and symbo
 | `expr?` | propagate `Err`/`None` | |
 | `x as T` | primitive cast | |
 
+**Overloading:** implement the matching `std::ops` trait for your own type: `+` `Add`, `-` `Sub`, `*` `Mul`, `/` `Div`, `%` `Rem`, unary `-` `Neg`, `!` `Not`, `&` `BitAnd`, `|` `BitOr`, `^` `BitXor`, `<<` `Shl`, `>>` `Shr`, `+=` `AddAssign` (and so on), `x[i]` `Index`/`IndexMut`, `*x` `Deref`/`DerefMut`, `==` `PartialEq`, `<` `>` `PartialOrd`. `&&`, `||`, `=`, `..` and `?` can't be overloaded this way. See [lesson 04/03](04_systems_level/03_advanced_features/README.md).
+
 Integer overflow panics in debug builds and wraps in release. Say what you mean with `checked_add`, `wrapping_add`, `saturating_add` or `overflowing_add`.
 
 ---
@@ -213,6 +224,10 @@ Integer overflow panics in debug builds and wraps in release. Say what you mean 
 | `fn f<'a>(x: &'a str, y: &'a str) -> &'a str` | the result lives as long as both inputs |
 | `struct S<'a> { r: &'a str }` | a struct holding a reference can't outlive what it points to |
 | `'_` | "some lifetime, inferred" |
+| `&'a T` / `&'a mut T` | a reference that is valid for lifetime `'a` |
+| `T: 'a` | `T` holds no references shorter than `'a` |
+| `'b: 'a` | lifetime `'b` lasts at least as long as `'a` ("outlives") |
+| `T: 'static` | `T` holds no short-lived borrows (an owned `String` qualifies) |
 | `std::mem::take(&mut x)` / `replace` / `swap` | move out of a `&mut` by leaving something in its place |
 
 ---
@@ -255,7 +270,17 @@ Integer overflow panics in debug builds and wraps in release. Say what you mean 
 | `trait Child: Parent` | supertrait: implementing `Child` requires `Parent` |
 | `impl<T: Display> MyTrait for T` | blanket impl: for every type that qualifies |
 | `T: ?Sized` | `T` may be unsized (like `str`, `[T]`, `dyn Trait`) |
+| `Trait::method(&x)` / `Type::method(&x)` | call a method through its trait or type (to pick between same-named methods) |
 | `<T as Trait>::method(x)` | fully qualified call (when two traits share a method name) |
+| `Iterator<Item = u8>` | a trait with its associated type fixed |
+| `Self::Item` | an associated type, used inside the trait or impl |
+| `type Output = P;` (in an `impl`) | choose the associated type for this implementation |
+| `const SIDES: u32;` (in a trait) | associated constant; used as `Square::SIDES` |
+| `trait Add<Rhs = Self>` | generic parameter with a default |
+| `T: 'a + Trait` / `dyn Trait + Send` | bounds combined with `+` (lifetimes and auto traits too) |
+| `F: for<'a> Fn(&'a str) -> usize` | higher-ranked bound: works for EVERY lifetime `'a` |
+| `-> impl Iterator<Item = &'a i32> + use<'a>` | precise capturing: say which generics/lifetimes the hidden type may use |
+| `type Item<'a> where Self: 'a;` | generic associated type (GAT) |
 | `struct Matrix<const N: usize>` | const generic: a value as a generic parameter |
 | `PhantomData<T>` | marks a type parameter that no field uses |
 
@@ -312,6 +337,7 @@ Integer overflow panics in debug builds and wraps in release. Say what you mean 
 | `v.push(x)` / `v.pop()` / `v.len()` | add / remove last / length |
 | `v[0]` / `v.get(0)` | index (panics if out of range) / `Option` |
 | `&v[1..3]` | slice of elements 1 and 2 |
+| `&v[..]` / `&v[2..]` / `&v[..2]` / `&v[1..=3]` | all / from 2 / before 2 / 1 to 3 inclusive |
 | `String::from("hi")` / `"hi".to_string()` | owned string |
 | `s.push_str("x")` / `s.push('c')` / `s1 + &s2` / `format!` | grow a string |
 | `s.chars()` / `s.bytes()` / `s.len()` | characters / bytes / length in **bytes** |
@@ -357,7 +383,11 @@ Integer overflow panics in debug builds and wraps in release. Say what you mean 
 | `dbg!` | debug-print a value |
 | `include_str!` `env!` `concat!` `file!` `line!` | compile-time helpers |
 | `macro_rules! name { ($x:expr) => { ... }; }` | define your own macro |
-| `$x:expr` `$i:ident` `$t:ty` `$($x:expr),*` | macro fragment types and repetition |
+| `$x:expr` `$i:ident` `$t:ty` `$p:pat` `$b:block` `$l:literal` `$tt:tt` | macro fragment types ("metavariables") |
+| `$( ... ),*` / `$( ... );+` / `$( ... )?` | repeat zero or more / one or more / zero or one times (here separated by `,` / `;`) |
+| `$crate::path` | refer to the macro's own crate, wherever it's used |
+| `name!(...)` `name![...]` `name!{...}` | three equivalent bracket styles (`vec![]` and `macro_rules! {}` by convention) |
+| `#[macro_export]` | make a `macro_rules!` macro usable from other crates |
 
 ---
 
@@ -428,6 +458,23 @@ Integer overflow panics in debug builds and wraps in release. Say what you mean 
 | `unsafe extern "C" { fn abs(x: i32) -> i32; }` | declare a C function (edition 2024 syntax) |
 | `extern "C" fn` + `#[unsafe(no_mangle)]` | let C call a Rust function |
 | `unsafe impl Send for T {}` | promise a trait's rules hold |
+
+---
+
+## Newer syntax
+
+Recent additions, all checked to compile on this course's toolchain (edition 2024).
+
+| Syntax | Meaning |
+|---|---|
+| `if let Some(a) = x && a > 3 { ... }` | let chains: several `let` patterns and conditions joined with `&&` |
+| `'block: { if done { break 'block value; } other }` | labelled block: leave a block early with a value |
+| `const { 1 + 2 }` | inline const block: evaluated at compile time |
+| `async \|a\| a + 1` | async closure: returns a future |
+| `&raw const x` / `&raw mut x` | create a raw pointer directly, without making a reference first |
+| `#[unsafe(no_mangle)]` / `#[unsafe(export_name = "...")]` | attributes that can break safety must be marked `unsafe` (edition 2024) |
+| `unsafe extern "C" { ... }` / `safe fn` inside it | extern blocks are `unsafe`; items you have checked can be marked `safe` |
+| `impl Trait + use<'a, T>` | precise capturing (see Traits and generics) |
 
 ---
 
